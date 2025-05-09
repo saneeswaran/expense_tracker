@@ -35,10 +35,10 @@ class AddExpense extends StatelessWidget {
 
   Widget _form({required Size size}) {
     return Positioned(
-      top: 140,
-      left: 40,
+      top: size.height * 0.15,
+      left: size.width * 0.10,
       child: Container(
-        height: size.height * 0.65,
+        height: size.height * 0.80,
         width: size.width * 0.80,
         decoration: BoxDecoration(
           color: Colors.white,

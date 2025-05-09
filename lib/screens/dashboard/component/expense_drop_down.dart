@@ -1,5 +1,6 @@
 import 'package:expense_tracker/constants/constants.dart';
 import 'package:expense_tracker/providers/expense_provider.dart';
+import 'package:expense_tracker/util/utils.dart';
 import 'package:expense_tracker/widgets/custom_elevated_button.dart';
 import 'package:expense_tracker/widgets/custom_textform_field.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _ExpenseDropDownState extends State<ExpenseDropDown> {
       icon: selectedIcon!,
       category: selectedCategory!,
       type: type!,
+      createdDate: DateTime.now(),
     );
     if (result && mounted) {
       Navigator.pop(context);
@@ -88,6 +90,11 @@ class _ExpenseDropDownState extends State<ExpenseDropDown> {
               controller: priceController,
               labelText: "Price",
               keyboardType: TextInputType.number,
+            ),
+            SizedBox(
+              height: size.height * 0.07,
+              width: size.width * 1,
+              child: CustomElevatedButton(text: widget.text, onPressed: () {}),
             ),
             SizedBox(
               height: size.height * 0.07,

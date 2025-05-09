@@ -65,13 +65,12 @@ class ExpenseProvider extends ChangeNotifier {
     required IconData icon,
     required String type,
     required String category,
+    required DateTime createdDate,
   }) async {
     try {
       final userId = FirebaseAuth.instance.currentUser!.uid;
       final CollectionReference collection = FirebaseFirestore.instance
           .collection("expenses");
-      final date = DateTime.now();
-      final formattedDate = DateFormat('dd-mm-yyyy').format(date);
       final ExpenseModel data = ExpenseModel(
         id: '',
         name: name,
@@ -79,7 +78,7 @@ class ExpenseProvider extends ChangeNotifier {
         iconCode: icon.codePoint,
         category: category,
         userId: userId,
-        createdAt: formattedDate,
+        createdAt: createdDate.toString(),
         type: type,
       );
 
@@ -164,7 +163,7 @@ class ExpenseProvider extends ChangeNotifier {
     required String name,
     required int iconCode,
     required double amount,
-    required String createdAt,
+    required DateTime createdAt,
     required String type,
     required String category,
   }) async {
@@ -179,7 +178,7 @@ class ExpenseProvider extends ChangeNotifier {
         userId: userId,
         category: category,
         amount: amount,
-        createdAt: createdAt,
+        createdAt: createdAt.toString(),
         type: type,
       );
       await collection.doc(id).update(newData.toMap());

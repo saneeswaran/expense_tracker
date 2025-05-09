@@ -3,7 +3,6 @@ import 'package:expense_tracker/providers/expense_provider.dart';
 import 'package:expense_tracker/widgets/custom_elevated_button.dart';
 import 'package:expense_tracker/widgets/custom_textform_field.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class UpdateExpense extends StatefulWidget {
@@ -45,8 +44,6 @@ class _UpdateExpenseState extends State<UpdateExpense> {
   }
 
   void updateExpense() async {
-    final date = DateTime.now();
-    final formattedDate = DateFormat('dd-mm-yyyy').format(date);
     final provider = Provider.of<ExpenseProvider>(context, listen: false);
     final bool isSuccess = await provider.updateExpense(
       context: context,
@@ -54,7 +51,7 @@ class _UpdateExpenseState extends State<UpdateExpense> {
       name: nameController.text,
       iconCode: selectedIcon!.codePoint,
       amount: double.parse(priceController.text),
-      createdAt: formattedDate,
+      createdAt: DateTime.now(),
       type: type!,
       category: selectedCategory!,
     );

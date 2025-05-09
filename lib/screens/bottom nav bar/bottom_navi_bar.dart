@@ -15,7 +15,7 @@ class BottomNaviBar extends StatefulWidget {
 }
 
 class _BottomNaviBarState extends State<BottomNaviBar> {
-  int currentIndex = 0;
+  int currentIndex = 2;
   final List pages = [
     const DashboardPage(),
     const HistoryPage(),

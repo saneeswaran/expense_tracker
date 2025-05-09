@@ -72,10 +72,12 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                     child: ListTile(
                       title: Text(data.name),
-                      subtitle: Text(data.createdAt),
+                      subtitle: Text("${data.createdAt}"),
                       leading: CircleAvatar(child: Icon(data.icon)),
                       trailing: Text(
-                        data.amount.toString(),
+                        data.type == "Income"
+                            ? "+${data.amount}"
+                            : "-${data.amount}",
                         style: TextStyle(
                           color:
                               data.type == "Income" ? Colors.green : Colors.red,
@@ -131,8 +133,8 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
           ),
           Positioned(
-            top: 150,
-            left: 43,
+            top: size.height * 0.2,
+            left: size.width * 0.10,
             child: Container(
               padding: EdgeInsets.all(size.width * 0.03),
               height: size.height * 0.3,
@@ -191,26 +193,29 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
             const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  totalIncome,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    totalIncome,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  totalExpenses,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    totalExpenses,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         );

@@ -6,6 +6,7 @@ class Constants {
       "assets/images/splash_background.png";
   static const String backgroundRectangle = "assets/images/Rectangle.png";
   static const Color mainColor = Color.fromRGBO(79, 152, 147, 1);
+  static const String profile = "assets/images/profile.jpg";
 }
 
 class AppColor {
@@ -33,3 +34,6 @@ List<Map<String, dynamic>> expenseCategories = [
   {'name': 'Others', 'icon': Icons.more_horiz},
 ];
 List<String> expenseTypes = ['Income', 'Expense'];
+
+List<String> profileTiles = ["Invite to Friends", "Profile Settings"];
+List<IconData> profileIcon = [Icons.person, Icons.settings];
