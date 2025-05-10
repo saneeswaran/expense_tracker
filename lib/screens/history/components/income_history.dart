@@ -24,7 +24,7 @@ class IncomeHistory extends StatelessWidget {
               return ListTile(
                 leading: CircleAvatar(child: Icon(income[index].icon)),
                 title: Text(income[index].name),
-                subtitle: Text("${income[index].createdAt}"),
+                subtitle: Text(income[index].createdAt),
                 trailing: Text(
                   income[index].amount.toString(),
                   style: const TextStyle(

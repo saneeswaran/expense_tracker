@@ -72,7 +72,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                     child: ListTile(
                       title: Text(data.name),
-                      subtitle: Text("${data.createdAt}"),
+                      subtitle: Text(data.createdAt),
                       leading: CircleAvatar(child: Icon(data.icon)),
                       trailing: Text(
                         data.type == "Income"

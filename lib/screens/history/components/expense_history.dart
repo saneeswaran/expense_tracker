@@ -24,7 +24,7 @@ class ExpenseHistory extends StatelessWidget {
                   child: Icon(value.filteredExpenses[index].icon),
                 ),
                 title: Text(value.filteredExpenses[index].name),
-                subtitle: Text("${value.filteredExpenses[index].createdAt}"),
+                subtitle: Text(value.filteredExpenses[index].createdAt),
                 trailing: Text(
                   value.filteredExpenses[index].amount.toString(),
                   style: const TextStyle(color: Colors.red, fontSize: 18),
